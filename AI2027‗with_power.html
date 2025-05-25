@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI業界の動向と電力インフラの課題：インフォグラフィック</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+            background-color: #eef8ff;
+            color: #1e293b;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #007bff;
+        }
+        .stat-label {
+            font-size: 1.25rem;
+            color: #1e293b;
+        }
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #007bff;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .icon-placeholder {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: #87cefa;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            color: white;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .flow-arrow {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: #007bff;
+        }
+        .comparison-box {
+            border: 2px solid #007bff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .sticky-nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sticky-nav li a {
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .sticky-nav li a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="sticky-nav hidden md:block">
+        <ul>
+            <li><a href="#section1">AI革命</a></li>
+            <li><a href="#section2">エネルギー需要</a></li>
+            <li><a href="#section3">インフラの課題</a></li>
+            <li><a href="#section4">解決策</a></li>
+            <li><a href="#section5">国際協力</a></li>
+            <li><a href="#section6">未来へ</a></li>
+        </ul>
+    </nav>
+
+    <header class="text-center py-12 md:py-20 bg-gradient-to-br from-[#007bff] to-[#00c6ff]">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">AIの未来予測と電力インフラの現実</h1>
+            <p class="text-xl md:text-2xl text-[#eef8ff] max-w-3xl mx-auto">見過ごされがちな「電力」という課題に焦点を当て、持続可能なAIの未来を探る</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+
+        <section id="section1" class="py-12">
+            <h2 class="section-title">1. AI革命の衝撃：AI2027が描く未来</h2>
+            <div class="card max-w-4xl mx-auto text-center">
+                <p class="text-lg md:text-xl mb-6 leading-relaxed">
+                    「AI2027シナリオ」は、AI技術が今後数年で産業革命を超えるほどの変革をもたらすと予測しています。特に2026年以降は「毎朝目覚めると、一週間分の進歩がある」と表現されるほど、私たちの社会のあらゆる側面に深く浸透していくとされています。
+                </p>
+                <div class="p-8 bg-[#eef8ff] rounded-lg">
+                    <p class="text-5xl md:text-7xl font-bold text-[#007bff]">AI 2027</p>
+                    <p class="text-xl md:text-2xl text-[#1e293b] mt-2">未来へのカウントダウン</p>
+                </div>
+                <p class="mt-6 text-md text-gray-600">
+                    この急速な進化は、私たちの生活や働き方を根本から変える可能性を秘めていますが、その裏では膨大な計算能力、そしてそれを支える「電力」が必要とされています。
+                </p>
+            </div>
+        </section>
+
+        <section id="section2" class="py-12">
+            <h2 class="section-title">2. AIの巨大なエネルギー需要：38GWの衝撃</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card text-center">
+                    <p class="stat-label mb-2">世界のAI電力ピーク需要</p>
+                    <p class="stat-number">38GW</p>
+                    <p class="text-sm text-gray-500">(2026年後半予測)</p>
+                    <p class="mt-4 text-md">これは、日本の年間平均電力消費量（約100GW）の約4割に匹敵する規模です。</p>
+                </div>
+
+                <div class="card md:col-span-2 lg:col-span-1">
+                    <h3 class="text-xl font-bold mb-4 text-center">AI電力需要の比較</h3>
+                    <div class="chart-container h-64 md:h-80">
+                        <canvas id="aiPowerComparisonChart"></canvas>
+                    </div>
+                    <p class="mt-4 text-sm text-gray-600 text-center">AIによる電力需要の大きさが分かります。</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-4 text-center">米国のAI電力シェア (2026年予測)</h3>
+                    <div class="chart-container h-64 md:h-80">
+                        <canvas id="usAiPowerShareChart"></canvas>
+                    </div>
+                    <p class="mt-4 text-sm text-gray-600 text-center">
+                        米国の総電力容量1.34TW（1,340GW）に対し、AIが33GW (2.5%) を占めると予測されています。
+                    </p>
+                </div>
+            </div>
+            <div class="card mt-8 max-w-4xl mx-auto">
+                 <h3 class="text-xl font-bold mb-4 text-center">データセンターの集中とリスク</h3>
+                 <p class="text-lg leading-relaxed mb-4">
+                    アメリカの総電力容量は現在約1.3TW（1,300GW）に達しており、2024年には年間40GWを超える新規発電容量が追加される見込みです。しかし、AI2027シナリオによると、そのうちAIによる電力ピーク需要は2026年後半には33GWに達すると予測されています。
+                 </p>
+                 <p class="text-lg leading-relaxed">
+                    現在のAIサーバーの大部分はアメリカに集中しており、この一極集中は、電力網への過度な負荷、災害や紛争などの地政学的リスク、そして電力料金の高騰といった潜在的な問題を引き起こす可能性があります。さらに、AIデータセンターは24時間365日稼働するため、ピーク時の電力供給だけでなく、安定したベースロード電力の確保が不可欠です。この持続的な高負荷は、電力インフラにとって大きな挑戦となります。
+                 </p>
+            </div>
+        </section>
+
+        <section id="section3" class="py-12">
+            <h2 class="section-title">3. 電力インフラの課題：供給は追いつくか？</h2>
+            <div class="card mb-8 max-w-4xl mx-auto">
+                <p class="text-lg md:text-xl leading-relaxed mb-6">
+                    アメリカの総電力供給容量は確かに巨大ですが、AIの爆発的な需要増は、その供給システムに新たな、そして複雑な課題を突きつけています。問題は単に「量」だけでなく、「どこで」「いつ」「どのような質」の電力が必要かという点にあります。
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-4">発電所増設のリードタイム</h3>
+                    <p class="mb-4">AIの急増する電力需要に対し、発電所の新規建設は時間がかかります。</p>
+                    <ul class="list-disc pl-5 space-y-2 text-lg">
+                        <li><span class="font-semibold text-[#007bff]">原子力発電所：</span>設計・許認可・建設に <strong class="text-red-600">10年以上</strong></li>
+                        <li><span class="font-semibold text-[#007bff]">大型火力発電所：</span>建設に <strong class="text-orange-500">数年</strong></li>
+                        <li><span class="font-semibold text-[#007bff]">再生可能エネルギー施設：</span>比較的短期間だが、天候に左右されるため安定供給には蓄電池などが不可欠</li>
+                    </ul>
+                    <p class="mt-4 text-md">2026年後半という短期的な需要増に、大規模な新規発電所の建設だけで対応するのは極めて困難です。</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-4">電力供給の複雑な課題</h3>
+                    <div class="flex items-center mb-2">
+                        <span class="icon-placeholder">!</span>
+                        <p><strong>送電網の制約：</strong>データセンター集中地域への送電インフラ整備が追いつかず、接続遅延が発生。</p>
+                    </div>
+                    <div class="flex items-center mb-2">
+                        <span class="icon-placeholder">!</span>
+                        <p><strong>電力の質と安定性：</strong>AIは24時間365日の安定供給を要求。間欠性のある再エネの統合には大規模蓄電池や柔軟な運用が不可欠。</p>
+                    </div>
+                    <div class="flex items-center mb-2">
+                        <span class="icon-placeholder">!</span>
+                        <p><strong>地域的な需給ミスマッチ：</strong>総容量は十分でも、特定のデータセンター集中地域では局所的な電力不足や高騰リスク。</p>
+                    </div>
+                    <div class="flex items-center mb-2">
+                        <span class="icon-placeholder">!</span>
+                        <p><strong>老朽化発電所の退役：</strong>信頼性の高い既存電源の減少が、新たな需要増加とのギャップを拡大。</p>
+                    </div>
+                    <div class="mt-4 p-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 rounded">
+                        <p class="font-bold">注意喚起</p>
+                        <p>AIサーバーの地理的集中と需要の特性は、AIサービスの安定供給における脆弱性となり得ます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="section4" class="py-12">
+            <h2 class="section-title">4. 未来を照らす電力：解決策への道筋</h2>
+            <div class="card mb-8">
+                <h3 class="text-xl font-bold mb-4 text-center">多角的な解決策の組み合わせ</h3>
+                <p class="text-lg text-center mb-6">AIの膨大な電力需要に対応するためには、単一の解決策ではなく、複数のアプローチを組み合わせる必要があります。</p>
+                <div class="chart-container h-96 md:h-[500px] max-w-3xl">
+                    <canvas id="solutionsChart"></canvas>
+                </div>
+                <p class="mt-4 text-sm text-gray-600 text-center">各解決策が連携し、持続可能な電力供給を目指します。</p>
+            </div>
+            <div class="card">
+                <h3 class="text-xl font-bold mb-6 text-center">地理的分散の重要性</h3>
+                <p class="text-lg text-center mb-6">AIサーバーをアメリカ一極集中から、電力供給に余裕があり、再生可能エネルギーが豊富な地域へ分散することが重要です。</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                    <div class="p-4 border border-[#87cefa] rounded-lg">
+                        <span class="text-4xl">🇨🇦</span>
+                        <h4 class="font-semibold mt-2">カナダ</h4>
+                        <p class="text-sm">豊富な水力発電・冷涼な気候</p>
+                    </div>
+                    <div class="p-4 border border-[#87cefa] rounded-lg">
+                        <span class="text-4xl">🇳🇴🇸🇪</span>
+                        <h4 class="font-semibold mt-2">北欧諸国</h4>
+                        <p class="text-sm">水力・風力発電・冷却効果</p>
+                    </div>
+                    <div class="p-4 border border-[#87cefa] rounded-lg">
+                        <span class="text-4xl">🇦🇺</span>
+                        <h4 class="font-semibold mt-2">オーストラリア</h4>
+                        <p class="text-sm">太陽光発電のポテンシャル</p>
+                    </div>
+                    <div class="p-4 border border-[#87cefa] rounded-lg">
+                        <span class="text-4xl">🇯🇵</span>
+                        <h4 class="font-semibold mt-2">日本</h4>
+                        <p class="text-sm">安定電力供給・高品質インフラ</p>
+                    </div>
+                </div>
+                <p class="mt-6 text-lg text-center">これにより、電力供給リスクの分散、データ主権への対応、サービス遅延の改善が期待できます。</p>
+            </div>
+        </section>
+
+        <section id="section5" class="py-12">
+            <h2 class="section-title">5. 地球規模の課題：国際協力こそ鍵</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card comparison-box border-[#007bff] bg-green-50">
+                    <h3 class="text-2xl font-bold text-green-600 mb-4">🤝 国際協力の推進</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-left text-lg">
+                        <li>AIサーバー部品の安定供給</li>
+                        <li>省エネ技術の共同開発・共有</li>
+                        <li>電力供給網の国際連携・最適化</li>
+                        <li>標準化とベストプラクティスの共有</li>
+                    </ul>
+                    <p class="mt-4 font-semibold text-green-700">持続可能なAI発展の基盤</p>
+                </div>
+                <div class="card comparison-box border-red-500 bg-red-50">
+                    <h3 class="text-2xl font-bold text-red-600 mb-4">⚔️ 保護主義・貿易摩擦の弊害</h3>
+                     <ul class="list-disc pl-5 space-y-2 text-left text-lg">
+                        <li>サプライチェーンの分断・コスト増</li>
+                        <li>技術協力の停滞・イノベーション阻害</li>
+                        <li>投資の不確実性増大・インフラ整備遅延</li>
+                        <li>グローバルな課題解決の妨げ</li>
+                    </ul>
+                    <p class="mt-4 font-semibold text-red-700">AIの健全な発展を阻害</p>
+                </div>
+            </div>
+            <p class="mt-8 text-xl text-center leading-relaxed max-w-3xl mx-auto">
+                AIの発展とそれに伴うインフラ課題は、一国だけで解決できるものではありません。部品供給から技術開発、電力網の最適化に至るまで、多岐にわたる国際的な連携が不可欠です。保護主義的な動きや貿易摩擦は、これらの協力を妨げ、AIの健全な発展を遅らせる要因となり得ます。
+            </p>
+        </section>
+
+        <section id="section6" class="py-12 bg-gradient-to-tr from-[#00c6ff] to-[#007bff] text-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">6. 持続可能なAIの未来へ</h2>
+                <p class="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-8">
+                    AI2027シナリオが描く革新的な未来は、非常に魅力的です。しかし、その実現には「電力」という物理的な制約が大きな課題として存在します。AIの急速な進化と電力需要の増大は、単なる技術的な問題ではなく、エネルギー政策、国際関係、経済安全保障といった多角的な視点から取り組むべき地球規模の課題です。
+                </p>
+                <p class="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+                    AIインフラ、特に電力供給の現実に社会全体が注目し、国際的な協調と賢明な投資を加速させることが、AI技術の恩恵を最大限に享受し、持続可能な未来を築く上で不可欠です。
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 border-t border-gray-200">
+        <p class="text-sm text-gray-600">&copy; 2025 AI電力インフラ課題インフォグラフィック. All rights reserved.</p>
+        <p class="text-xs text-gray-500 mt-1">Data based on "AI2027 Predictions and Infrastructure Reality" report.</p>
+    </footer>
+
+    <script>
+        function wrapText(text, maxWidth) {
+            if (typeof text !== 'string') return text;
+            if (text.length <= maxWidth) return text;
+
+            const words = text.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + words[i].length + 1 <= maxWidth) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+        
+        const commonTooltipTitleCallback = function(tooltipItems) {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            } else {
+              return label;
+            }
+        };
+
+        const aiPowerComparisonCtx = document.getElementById('aiPowerComparisonChart').getContext('2d');
+        new Chart(aiPowerComparisonCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    wrapText('世界のAIピーク需要 (予測)', 16), 
+                    wrapText('日本の平均電力消費量 (参考)', 16),
+                    wrapText('米国のAIピーク需要 (予測)', 16)
+                ],
+                datasets: [{
+                    label: '電力需要 (GW)',
+                    data: [38, 100, 33],
+                    backgroundColor: ['#007bff', '#87cefa', '#00c6ff'],
+                    borderColor: ['#0056b3', '#65b0e3', '#00a4d9'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'ギガワット (GW)' }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    title: { display: true, text: 'AI電力需要の国際比較 (2026年予測)' },
+                    tooltip: { callbacks: { title: commonTooltipTitleCallback } }
+                }
+            }
+        });
+
+        const usAiPowerShareCtx = document.getElementById('usAiPowerShareChart').getContext('2d');
+        new Chart(usAiPowerShareCtx, {
+            type: 'doughnut',
+            data: {
+                labels: [wrapText('AIによる電力消費 (33GW)', 16), wrapText('その他電力消費 (1307GW)', 16)],
+                datasets: [{
+                    label: '電力シェア',
+                    data: [33, 1307],
+                    backgroundColor: ['#007bff', '#e0f2fe'],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    title: { display: true, text: '米国総電力容量(1.34TW)におけるAIのシェア' },
+                    tooltip: { callbacks: { title: commonTooltipTitleCallback } }
+                }
+            }
+        });
+
+        const solutionsCtx = document.getElementById('solutionsChart').getContext('2d');
+        new Chart(solutionsCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    wrapText('既存電力網の活用・効率化', 16), 
+                    wrapText('再生可能エネルギー ＋ 蓄電池', 16), 
+                    wrapText('省エネ技術 (DC/チップ)', 16),
+                    wrapText('地理的分散による最適化', 16)
+                ],
+                datasets: [{
+                    label: '貢献ポテンシャル (イメージ)',
+                    data: [25, 45, 20, 10],
+                    backgroundColor: ['#007bff', '#00c6ff', '#87cefa', '#5dade2'],
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: { display: true, text: '貢献度 (%)' }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    title: { display: true, text: 'AI電力需要への対応策と貢献イメージ' },
+                    tooltip: { callbacks: { title: commonTooltipTitleCallback } }
+                }
+            }
+        });
+
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.sticky-nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 70) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-[#0056b3]', 'font-bold');
+                link.classList.add('text-[#007bff]');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('text-[#0056b3]', 'font-bold');
+                    link.classList.remove('text-[#007bff]');
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
